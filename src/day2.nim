@@ -1,6 +1,5 @@
 import sequtils
 import helpers
-import strutils
 
 const input = "src/day2.txt"
 
@@ -26,7 +25,6 @@ proc part1(): int =
   ]
 
   input.lines().toSeq()
-    .filterIt(not it.isEmptyOrWhitespace())
     .mapIt((opponent: it[0], you: it[2]))
     .mapIt(roundScores[it.opponent][it.you] + shapeScores[it.you])
     .sum()
@@ -59,7 +57,6 @@ proc part2(): int =
   ]
 
   input.lines().toSeq()
-    .filterIt(not it.isEmptyOrWhitespace())
     .mapIt((opponent: it[0], outcome: it[2]))
     .mapIt(outcomeScores[it.outcome] + shapeScores[responses[it.opponent][it.outcome]])
     .sum()

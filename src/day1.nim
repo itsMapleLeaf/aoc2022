@@ -4,24 +4,16 @@ import algorithm
 import helpers
 import sugar
 
-proc part1(): int =
-  let inputFile = open("src/day1.txt")
-  defer: inputFile.close()
+const input = "src/day1.txt"
 
-  inputFile
-    .readAll()
-    .strip()
+proc part1(): int =
+  input.readFile().strip()
     .split("\n\n")
     .map(nums => nums.split("\n").map(parseInt).sum())
     .max()
 
 proc part2(): int =
-  let inputFile = open("src/day1.txt")
-  defer: inputFile.close()
-
-  inputFile
-    .readAll()
-    .strip()
+  input.readFile().strip()
     .split("\n\n")
     .map(nums => nums.split("\n").map(parseInt).sum())
     .sorted(Descending)[0 .. 2]
