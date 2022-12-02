@@ -2,10 +2,9 @@ import sequtils
 import helpers
 import strutils
 
-proc part1(): int =
-  let inputFile = open("src/day2.txt")
-  defer: inputFile.close()
+const input = "src/day2.txt"
 
+proc part1(): int =
   const rock = 'A'
   const paper = 'B'
   const scissors = 'C'
@@ -26,16 +25,13 @@ proc part1(): int =
     scissorsResponse: 3,
   ]
 
-  inputFile.lines().toSeq()
+  input.lines().toSeq()
     .filterIt(not it.isEmptyOrWhitespace())
     .mapIt((opponent: it[0], you: it[2]))
     .mapIt(roundScores[it.opponent][it.you] + shapeScores[it.you])
     .sum()
 
 proc part2(): int =
-  let inputFile = open("src/day2.txt")
-  defer: inputFile.close()
-
   const rock = 'A'
   const paper = 'B'
   const scissors = 'C'
@@ -62,7 +58,7 @@ proc part2(): int =
     scissors: [lose: paper, tie: scissors, win: rock],
   ]
 
-  inputFile.lines().toSeq()
+  input.lines().toSeq()
     .filterIt(not it.isEmptyOrWhitespace())
     .mapIt((opponent: it[0], outcome: it[2]))
     .mapIt(outcomeScores[it.outcome] + shapeScores[responses[it.opponent][it.outcome]])
@@ -71,5 +67,3 @@ proc part2(): int =
 when isMainModule:
   echo "Part 1: ", part1()
   echo "Part 2: ", part2()
-
-  

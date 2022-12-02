@@ -7,6 +7,4 @@ i wanted to find an excuse to use Nim again lol
 
 ## Adding a new day
 
-1. Create a new file in `src/` called `dayX.nim`
-1. Create a `dayX.txt` file for the input
-1. Add `"dayX"` to the `bin` section of .nimble file
+Run `nim r scripts/new_day X` where X is the day number
