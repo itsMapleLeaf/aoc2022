@@ -9,15 +9,16 @@ const input = "src/day6.txt"
 
 let characters = input.readFile.strip
 
-proc part1(): int =
-  toSeq(3..characters.high)
-    .findWhere(x => characters[x - 3 .. x].hasUniqueValues)
+proc firstIndexOfUniqueCharacters(groupSize: int): int =
+  toSeq((groupSize - 1)..characters.high)
+    .findWhere(x => characters[x - (groupSize - 1) .. x].hasUniqueValues)
     .get() + 1
 
+proc part1(): int =
+  firstIndexOfUniqueCharacters(4)
+
 proc part2(): int =
-  toSeq(13..characters.high)
-    .findWhere(x => characters[x - 13 .. x].hasUniqueValues)
-    .get() + 1
+  firstIndexOfUniqueCharacters(14)
 
 when isMainModule:
   echo "Part 1: ", part1()
