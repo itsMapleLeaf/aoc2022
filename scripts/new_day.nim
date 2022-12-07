@@ -8,10 +8,10 @@ let day = commandLineParams()[0]
 writeFile(&"src/day{day}.nim", &"""
 const input = "src/day{day}.txt"
 
-proc part1(): int =
+proc part1: int =
   0
 
-proc part2(): int =
+proc part2: int =
   0
 
 when isMainModule:

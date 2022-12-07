@@ -14,10 +14,10 @@ proc firstIndexOfUniqueCharacters(groupSize: int): int =
     .findWhere(x => characters[x - (groupSize - 1) .. x].hasUniqueValues)
     .get() + 1
 
-proc part1(): int =
+proc part1: int =
   firstIndexOfUniqueCharacters(4)
 
-proc part2(): int =
+proc part2: int =
   firstIndexOfUniqueCharacters(14)
 
 when isMainModule:
