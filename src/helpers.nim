@@ -1,3 +1,5 @@
+import sets
+import options
 import sequtils
 
 template sum*(nums: openArray[int]): int =
@@ -13,3 +15,11 @@ proc deleteLast*[T](items: var seq[T], count: Natural): seq[T] =
   let removed = items[deletedRange]
   items.delete deletedRange
   removed
+
+proc findWhere*[T](s: seq[T], pred: proc(x: T): bool {.closure.}): Option[T] =
+  for i, x in s:
+    if pred(x): return some(x)
+  none(T)
+
+proc hasUniqueValues*[T](s: openArray[T]): bool =
+  s.len == s.toHashSet.len
