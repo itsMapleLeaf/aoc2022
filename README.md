@@ -7,4 +7,4 @@ i wanted to find an excuse to use Nim again lol
 
 ## Adding a new day
 
-Run `nim r scripts/new_day X` where X is the day number
+Run `nim newDay <dayNumber>`
