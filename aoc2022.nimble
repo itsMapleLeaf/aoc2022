@@ -5,7 +5,7 @@ author        = "itsMapleLeaf"
 description   = "advent of code 2022 in nim!"
 license       = "MIT"
 srcDir        = "src"
-bin           = @["day1", "day2", "day5", "day6"]
+bin           = @["day1", "day2", "day5", "day6", "day7"]
 
 
 # Dependencies

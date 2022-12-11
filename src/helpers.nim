@@ -2,10 +2,18 @@ import sets
 import options
 import sequtils
 
-template sum*(nums: openArray[int]): int =
-  nums.foldl(a + b)
+template sum*(nums: seq[int]): int =
+  if nums.isEmpty: 0 else: nums.foldl(a + b)
 
-proc last*[T](a: openArray[T]): T =
+template sum*(nums: iterable[int]): int =
+  var result = 0
+  for x in nums: result += x
+  result
+
+template isEmpty*(s: seq[auto]): bool =
+  s.len == 0
+
+func last*[T](a: openArray[T]): T =
   a[a.high]
 
 proc deleteLast*[T](items: var seq[T], count: Natural): seq[T] =
@@ -16,10 +24,10 @@ proc deleteLast*[T](items: var seq[T], count: Natural): seq[T] =
   items.delete deletedRange
   removed
 
-proc findWhere*[T](s: seq[T], pred: proc(x: T): bool {.closure.}): Option[T] =
+func findWhere*[T](s: seq[T], pred: proc(x: T): bool {.closure.}): Option[T] =
   for i, x in s:
     if pred(x): return some(x)
   none(T)
 
-proc hasUniqueValues*[T](s: openArray[T]): bool =
+func hasUniqueValues*[T](s: openArray[T]): bool =
   s.len == s.toHashSet.len
