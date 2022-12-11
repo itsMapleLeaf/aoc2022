@@ -1,9 +1,9 @@
 import strutils
 import sequtils
 import algorithm
-import helpers
+import ../helpers
 
-const input = "src/day1.txt"
+const input = "day1/input.txt"
 
 proc part1(): int =
   input.readFile().strip()
@@ -17,7 +17,7 @@ proc part2(): int =
     .mapIt(it.split("\n").map(parseInt).sum())
     .sorted(Descending)[0 .. 2]
     .sum()
-    
+
 when isMainModule:
   echo "Part 1: ", part1()
   echo "Part 2: ", part2()

@@ -1,11 +1,11 @@
-import helpers
+import ../helpers
 import strutils
 import sequtils
 import sets
 import sugar
 import options
 
-const input = "src/day6.txt"
+const input = "day6/input.txt"
 
 let characters = input.readFile.strip
 

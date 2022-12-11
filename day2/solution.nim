@@ -1,7 +1,7 @@
 import sequtils
-import helpers
+import ../helpers
 
-const input = "src/day2.txt"
+const input = "day2/input.txt"
 
 proc part1(): int =
   const rock = 'A'
@@ -60,7 +60,7 @@ proc part2(): int =
     .mapIt((opponent: it[0], outcome: it[2]))
     .mapIt(outcomeScores[it.outcome] + shapeScores[responses[it.opponent][it.outcome]])
     .sum()
-    
+
 when isMainModule:
   echo "Part 1: ", part1()
   echo "Part 2: ", part2()

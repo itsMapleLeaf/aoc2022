@@ -31,3 +31,6 @@ func findWhere*[T](s: seq[T], pred: proc(x: T): bool {.closure.}): Option[T] =
 
 func hasUniqueValues*[T](s: openArray[T]): bool =
   s.len == s.toHashSet.len
+
+func unique*[T](s: openArray[T]): seq[T] =
+  s.toHashSet.toSeq

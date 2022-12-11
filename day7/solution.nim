@@ -1,4 +1,4 @@
-import helpers
+import ../helpers
 import strutils
 import sequtils
 import tables

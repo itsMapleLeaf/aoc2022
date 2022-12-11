@@ -2,9 +2,9 @@ import sequtils
 import strutils
 import re
 import algorithm
-import helpers
+import ../helpers
 
-const input = "src/day5.txt"
+const input = "day5/input.txt"
 
 let (stacksInput, instructionsInput) = block:
   let chunks = input.readFile
