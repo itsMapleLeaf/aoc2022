@@ -2,10 +2,7 @@ import sets
 import options
 import sequtils
 
-template sum*(nums: seq[int]): int =
-  if nums.isEmpty: 0 else: nums.foldl(a + b)
-
-template sum*(nums: iterable[int]): int =
+template sum*(nums: untyped): int =
   var result = 0
   for x in nums: result += x
   result
