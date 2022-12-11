@@ -8,10 +8,10 @@ let day = commandLineParams()[0]
 writeFile(&"src/day{day}.nim", &"""
 const input = "src/day{day}.txt"
 
-proc part1: int =
+proc part1: auto =
   0
 
-proc part2: int =
+proc part2: auto =
   0
 
 when isMainModule:
@@ -28,8 +28,8 @@ let nimbleFilePath = "aoc2022.nimble"
 writeFile(
   nimbleFilePath,
   readFile(nimbleFilePath)
-    .replacef(
-      re"(bin\s*=\s*@\[[^\]]*)\]",
-      &"$1, \"day{day}\"]"
-    )
+  .replacef(
+    re"(bin\s*=\s*@\[[^\]]*)\]",
+    &"$1, \"day{day}\"]"
+  )
 )
