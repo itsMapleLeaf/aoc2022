@@ -13,14 +13,14 @@ func overlaps(a: HSlice[int, int], b: HSlice[int, int]): bool =
 type AssignmentRange = HSlice[int, int]
 
 func toAssignmentRange(input: string): AssignmentRange =
-  let parts = input.split("-")
-  (parts[0].parseInt .. parts[1].parseInt)
+  let parts = input.split("-").map(parseInt)
+  parts[0] .. parts[1]
 
 type AssignmentRangePair = tuple[a: AssignmentRange, b: AssignmentRange]
 
 func toAssignmentRangePair(line: string): AssignmentRangePair =
-  let parts = line.split(",")
-  (parts[0].toAssignmentRange, parts[1].toAssignmentRange)
+  let parts = line.split(",").map(toAssignmentRange)
+  (parts[0], parts[1])
 
 proc part1(inputPath: string): auto =
   inputPath.lines.toSeq
