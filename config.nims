@@ -2,6 +2,8 @@ import os
 import strformat
 import strutils
 
+--verbosity: 0
+
 func solutionPath(day: string): string =
   &"day{day}/solution.nim"
 
