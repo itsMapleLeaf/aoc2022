@@ -8,7 +8,9 @@ func solutionPath(day: string): string =
   &"day{day}/solution.nim"
 
 task day, "Run the solution for a day":
-  exec "nim c -r " & solutionPath(commandLineParams()[1])
+  let currentSolutionPath = solutionPath(commandLineParams()[1])
+  let remainingArgs = commandLineParams()[2..^1].join(" ")
+  exec &"nim c -r {currentSolutionPath} {remainingArgs}"
 
 task newDay, "Scaffold files for a day":
   let day = commandLineParams()[1]

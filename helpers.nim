@@ -31,3 +31,6 @@ func hasUniqueValues*[T](s: openArray[T]): bool =
 
 func unique*[T](s: openArray[T]): seq[T] =
   s.toHashSet.toSeq
+
+func sign*(num: int): int =
+  if num == 0: 0 else: num div abs(num)
