@@ -26,7 +26,7 @@ func `!=`*(a, b: Vector): bool = a.x != b.x or a.y != b.y
 func `>`*(a, b: Vector): bool = a.x > b.x and a.y > b.y
 func `<`*(a, b: Vector): bool = a.x < b.x and a.y < b.y
 
-iterator pointsBetween*(topLeft, bottomRight: Vector): Vector =
-  for y in topLeft.y .. bottomRight.y:
-    for x in topLeft.x .. bottomRight.x:
+iterator items*(slice: HSlice[Vector, Vector]): Vector =
+  for y in slice.a.y .. slice.b.y:
+    for x in slice.a.x .. slice.b.x:
       yield (x, y)

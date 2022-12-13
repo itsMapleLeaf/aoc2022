@@ -25,7 +25,7 @@ func isAtEdge*(rect: Rect, point: Vector): bool =
   point.y == rect.y or point.y == rect.y + rect.height - 1
 
 iterator points*(rect: Rect): Vector =
-  for pos in pointsBetween(rect.topLeft, rect.bottomRight):
+  for pos in rect.topLeft .. rect.bottomRight:
     yield pos
 
 iterator raycastToEdge*(rect: Rect, start: Vector, direction: Vector): Vector =
